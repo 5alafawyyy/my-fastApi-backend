@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from passlib.context import CryptContext 
 from datetime import timezone
-
+from typing import Optional
 
 class Child(BaseModel):
     childUserName: str
@@ -17,9 +17,9 @@ class Child(BaseModel):
     firstName: str
     lastName: str
     dateOfBirth: str
-    timeControl: int | None = None
+    timeControl: Optional[int] = None  # ✅ Fix applied here
     parentUserName: str
-    profileIcon: str | None = None
+    profileIcon: Optional[str] = None
 
 class Token(BaseModel):
     access_token: str
